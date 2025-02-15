@@ -1,0 +1,36 @@
+---
+
+- name: install | ensure required dirs are created
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: 1000
+    group: 1000
+  loop:
+    - "{{ firedancer_workdir }}"
+    - "{{ firedancer_log_path }}"
+    - "{{ firedancer_config_path }}"
+    - "{{ firedancer_ledger_path }}"
+    - "{{ firedancer_accounts_path }}"
+    - "{{ firedancer_snapshots_path }}"
+
+- name: install | ensure Dockerfile is exists
+  template:
+    src: Dockerfile
+    dest: "{{ firedancer_workdir }}/Dockerfile"
+
+- name: install | ensure entrypoint.sh is exists
+  template:
+    src: entrypoint.sh
+    dest: "{{ firedancer_workdir }}/entrypoint.sh"
+
+- name: install | ensure docker-compose.yml is exists
+  template:
+    src: docker-compose.yml
+    dest: "{{ firedancer_workdir }}/docker-compose.yml"
+
+- name: install | ensure systemd unit is exists
+  template:
+    src: firedancer-docker.service
+    dest: "/etc/systemd/system/firedancer.service"
+
