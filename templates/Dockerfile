@@ -1,4 +1,3 @@
-#FROM ubuntu:20.04 as builder
 FROM debian:12-slim AS builder
 
 RUN apt update && \
@@ -22,7 +21,6 @@ RUN	cd ./firedancer && \
 RUN cd ./firedancer && make -j fdctl
 
 # Set up release container
-#FROM ubuntu:20.04 AS release
 FROM debian:12-slim AS release
 
 RUN useradd -s /bin/bash -m -d /opt/firedancer firedancer && \
