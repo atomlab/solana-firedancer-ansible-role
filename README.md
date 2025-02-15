@@ -1,5 +1,5 @@
 # Firedancer ansible role
-This repo contains Ansible role for deploying a Firedance instance in docker with docker-compose.
+This repo contains Ansible role for deploying a Firedancer instance in docker with docker-compose.
 
 Firedancer is a new validator client for [Solana](https://github.com/anza-xyz/agave).
 
