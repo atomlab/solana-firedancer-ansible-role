@@ -68,3 +68,21 @@ Enable auto-start of the Firedancer container
 ```
 systemctl enable firedancer
 ```
+
+## Logs
+
+Viewing logs using `docker logs`
+```
+docker logs -f firedancer
+```
+
+Viewing logs using `journald`
+```
+journalctl -fu firedancer
+```
+
+Viewing logs using log file
+```
+tail -f /opt/firedancer/log/firedancer.log
+```
+
