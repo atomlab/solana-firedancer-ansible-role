@@ -1,6 +1,6 @@
 ---
 
-firedancer_release: v0.305.20111
+firedancer_release: v0.504.20215
 firedancer_workdir: /opt/firedancer
 firedancer_log_path: "{{ firedancer_workdir }}/log"
 firedancer_ledger_path: "{{ firedancer_workdir }}/ledger"
