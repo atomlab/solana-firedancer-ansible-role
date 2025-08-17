@@ -1,0 +1,18 @@
+---
+
+- name: configure | ensure config.yml is exist
+  template:
+    src: "config.toml"
+    dest: "{{ firedancer_config_path }}/config.toml"
+    owner: 1000
+    group: 1000
+
+- name: configure | ensure validator keys are exist
+  template:
+    src: "{{ item }}.j2"
+    dest: "{{ firedancer_config_path }}/{{ item }}"
+    owner: 1000
+    group: 1000
+  loop:
+    - validator-keypair.json
+    - vote-keypair.json

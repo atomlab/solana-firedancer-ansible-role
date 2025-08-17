@@ -1,0 +1,51 @@
+name = "fd1"
+user = "firedancer"
+dynamic_port_range = "8900-9000"
+
+[log]
+    level_stderr = "INFO"
+    path = "/opt/firedancer/log/firedancer.log"
+
+[gossip]
+    entrypoints = {{ firedancer_gossip_entrypoints | to_nice_json(indent=6) }}
+    port_check = true
+    port = 8001
+
+[consensus]
+    poh_speed_test = false
+    identity_path = "/opt/firedancer/config/validator-keypair.json"
+    vote_account_path = "/opt/firedancer/config/vote-keypair.json"
+    expected_genesis_hash = "{{ firedancer_expected_genesis_hash }}"
+    known_validators = {{ firedancer_known_validators | to_nice_json(indent=6) }}
+
+[rpc]
+    port = 8899
+    full_api = true
+    private = true
+
+[reporting]
+    solana_metrics_config = "host={{ firedancer_solana_metrics_config }}"
+
+[ledger]
+    path = "/opt/firedancer/ledger"
+    accounts_path = "/opt/firedancer/accounts"
+    limit_size = 200_000_000
+    snapshot_archive_format = "zstd"
+    require_tower = false
+
+[snapshots]
+    path = "/opt/firedancer/snapshots"
+
+[tiles.gui]
+    enabled = true
+    gui_listen_address = "0.0.0.0"
+    gui_listen_port = 9600
+
+[layout]
+    affinity = "auto"
+    agave_affinity = "auto"
+    net_tile_count = 1
+    quic_tile_count = 1
+    verify_tile_count = 2
+    bank_tile_count = 2
+    shred_tile_count = 2

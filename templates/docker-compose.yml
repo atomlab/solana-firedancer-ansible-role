@@ -1,0 +1,21 @@
+---
+services:
+  firedancer:
+    container_name: firedancer
+    image: firedancer:{{ firedancer_release }}
+    network_mode: "host"
+    ipc: host
+    privileged: true
+    volumes:
+      - "{{ firedancer_log_path }}:/opt/firedancer/log:Z"
+      - "{{ firedancer_config_path }}:/opt/firedancer/config:Z"
+      - "{{ firedancer_ledger_path }}:/opt/firedancer/ledger:Z"
+      - "{{ firedancer_accounts_path }}:/opt/firedancer/accounts:Z"
+      - "{{ firedancer_snapshots_path }}:/opt/firedancer/snapshots:Z"
+    #command: tail -f /dev/null # Debug purpose
+    command: fdctl run --config /opt/firedancer/config/config.toml
+    build:
+      network: host
+      context: .
+      args:
+        GITTAG: "{{ firedancer_release }}"

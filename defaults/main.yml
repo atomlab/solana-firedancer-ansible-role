@@ -1,0 +1,23 @@
+---
+
+firedancer_release: v0.703.20300
+firedancer_workdir: /opt/firedancer
+firedancer_log_path: "{{ firedancer_workdir }}/log"
+firedancer_ledger_path: "{{ firedancer_workdir }}/ledger"
+firedancer_config_path: "{{ firedancer_workdir }}/config"
+firedancer_accounts_path: "{{ firedancer_workdir }}/accounts"
+firedancer_snapshots_path: "{{ firedancer_workdir }}/snapshots"
+firedancer_validator_keypair: "XXXXXX"
+firedancer_vote_keypair: "XXXXXX"
+firedancer_solana_metrics_config: "https://metrics.solana.com:8086,db=tds,u=testnet_write,p=c4fa841aa918bf8274e3e2a44d77568d9861b3ea"
+firedancer_expected_genesis_hash: 4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY
+firedancer_known_validators:
+  - "5D1fNXzvv5NjV1ysLjirC4WY92RNsVH18vjmcszZd8on"
+  - "dDzy5SR3AXdYWVqbDEkVFdvSPCtS9ihF5kJkHCtXoFs"
+  - "Ft5fbkqNa76vnsjYNwjDZUXoTWpP7VYm3mtsaQckQADN"
+  - "eoKpUABi59aT4rR9HGS3LcMecfut9x7zJyodWWP43YQ"
+  - "9QxCLckBiJc783jnMvXZubK4wH86Eqqvashtrwvcsgkv"
+firedancer_gossip_entrypoints:
+  - "entrypoint.testnet.solana.com:8001"
+  - "entrypoint2.testnet.solana.com:8001"
+  - "entrypoint3.testnet.solana.com:8001"
